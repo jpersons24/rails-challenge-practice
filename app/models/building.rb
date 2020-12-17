@@ -1,5 +1,9 @@
 class Building < ApplicationRecord
 
+  has_many :offices
+  has_many :companies, through: :offices
+
+  
   def number_of_floors_available
     # Will not work until relationships and schema are corretly setup
 
@@ -10,8 +14,19 @@ class Building < ApplicationRecord
     all_floors
   end
 
+
   def empty_offices
     number_of_floors_available.map { |f| offices.build(floor: f) }
+  end
+
+  def companies_in_building
+    self.companies.map do |company|
+      company.name
+    end
+  end
+
+  def total_rent
+    self.offices.count * self.rent_per_floor
   end
 
 end
