@@ -19,6 +19,8 @@ weworks = [
   }
 ]
 
+
+puts "Construction in progress!"
 weworks.each do |we|
   Building.create(we)
 end
@@ -33,6 +35,7 @@ companies = [
   "Dog the Bounty Hunter LLC"
 ]
 
+puts "Founding companies!"
 companies.each do |company|
   Company.create(name: company)
 end
@@ -47,6 +50,7 @@ titles = [
   "Instructor"
 ]
 
+puts "Hiring employees!"
 100.times do 
   Employee.create(
     name: Faker::Name.name_with_middle,
@@ -55,6 +59,7 @@ titles = [
   )
 end
 
+puts "Decorating offices!"
 10.times do 
   random_building = Building.all.sample
   random_building_floors_array = (1..random_building.number_of_floors).to_a
