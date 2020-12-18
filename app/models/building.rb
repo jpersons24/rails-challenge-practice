@@ -29,4 +29,6 @@ class Building < ApplicationRecord
     self.offices.count * self.rent_per_floor
   end
 
+  
+
 end

@@ -1,0 +1,10 @@
+<h1><%= @company.name %></h1>
+
+<p>Offices in the following buildings and on respective floors:</p>
+<ul>
+   <% @company.buildings.each do |building| %>
+      <li><%= link_to building.name, building_path(building) %> </li> <br>
+   <% end %>
+</ul>
+
+<p>FINISH WORKING ON COMPANY SHOW PAGE TO DISPLAY FLOORS OF EACH OFFICE IN EACH BUILDING</p>

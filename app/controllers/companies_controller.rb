@@ -1,23 +1,28 @@
 class CompaniesController < ApplicationController
 
+
+   def index
+      @companies = Company.all
+   end
+
    def show
-      @building = Building.find(params[:id])
+      @company = Company.find(params[:id])
    end
 
    def new
-      @building = Building.new
+      @company = Company.new
    end
 
    def create
-      @building = Building.create(building_params)
+      @company = Company.create(company_params)
 
-      redirect_to building_path(@building)
+      redirect_to company_path(@company)
    end
 
    private
 
-   def building_params
-      params.require(:building).permit(:name)
+   def company_params
+      params.require(:company).permit(:name)
    end
 
 
