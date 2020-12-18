@@ -2,9 +2,8 @@
 
 <p>Offices in the following buildings and on respective floors:</p>
 <ul>
-   <% @company.buildings.each do |building| %>
-      <li><%= link_to building.name, building_path(building) %> </li> <br>
+   <% @company.office_building_and_floor.each do |office| %>
+      <li><%= office %></li>
    <% end %>
 </ul>
 
-<p>FINISH WORKING ON COMPANY SHOW PAGE TO DISPLAY FLOORS OF EACH OFFICE IN EACH BUILDING</p>

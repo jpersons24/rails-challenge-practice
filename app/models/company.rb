@@ -4,10 +4,13 @@ class Company < ApplicationRecord
    has_many :offices
    has_many :buildings, through: :offices
 
-   def company_office_floors
+   # returns array of strings including office ["building name || Floor number"]
+   def office_building_and_floor
       self.offices.map do |office|
-         office.floor
+         "#{office.building.name}  ||  Floor: #{office.floor}"
       end
    end
+
+   
 
 end
