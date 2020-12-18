@@ -1,5 +1,7 @@
 <h1>WeWork Buildings</h1>
 
+<h3><u>Building - Floors available</u></h3>
+
 <% @buildings.each do |building| %>
-   <%= link_to building.name, building_path(building) %> <br>
+   <p><%= link_to building.name, building_path(building) %> - <%= building.number_of_floors_available.join(", ") %></p><br>
 <% end %>
