@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # get '/buildings/:id', to: 'buildings#show', as: 'building'
   resources :buildings, only: [:index, :show, :edit, :update]
   resources :companies, only: [:index, :show]
+  resources :employees, only: [:new, :create]
 
 end

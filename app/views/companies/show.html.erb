@@ -1,9 +1,27 @@
 <h1><%= @company.name %></h1>
 
-<p>Offices in the following buildings and on respective floors:</p>
-<ul>
-   <% @company.office_building_and_floor.each do |office| %>
-      <li><%= office %></li>
+<div>
+   <p>Offices in the following buildings and on respective floors:</p>
+   <ul>
+      <% @company.office_building_and_floor.each do |office| %>
+         <li><%= office %></li>
+      <% end %>
+   </ul>
+</div>
+
+
+<div>
+   <p>Add employee to <%= @company.name %> records:</p>
+
+   <%= form_for @employee do |f| %>
+     <%= f.label "Name:" %>
+     <%= f.text_field :name %> <br>
+     <%= f.label "Title:" %>
+     <%= f.text_field :title %> <br>
+     <%= f.label "Company Name:" %>
+     <%= f.collection_select :company_id, Company.where(name: @company.name), :id, :name %> <br>
+
+     <%= f.submit %>
    <% end %>
-</ul>
+</div>
 

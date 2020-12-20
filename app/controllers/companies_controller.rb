@@ -6,7 +6,8 @@ class CompaniesController < ApplicationController
    end
 
    def show
-      @company = Company.find(params[:id])
+      @company = find_company
+      @employee = Employee.new
    end
 
    def new
@@ -23,6 +24,10 @@ class CompaniesController < ApplicationController
 
    def company_params
       params.require(:company).permit(:name)
+   end
+
+   def find_company
+      Company.find(params[:id])
    end
 
 
