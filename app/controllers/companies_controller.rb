@@ -20,6 +20,19 @@ class CompaniesController < ApplicationController
       redirect_to company_path(@company)
    end
 
+   ##### edit/update actions needed for removing employee from company records? #####
+
+   # def edit
+   #    @company = find_company
+   # end
+
+   # def update
+   #    @company = find_company
+   #    @company.update
+
+   #    redirect_to company_path(@company)
+   # end
+
    private
 
    def company_params
