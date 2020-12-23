@@ -7,6 +7,9 @@
          <li><%= office %></li>
       <% end %>
    </ul>
+
+   <p>Total rent per month: $<%= @company.rent_paid.sum %></p>
+
 </div>
 
 
@@ -21,21 +24,24 @@
      <%= f.label "Company Name:" %>
      <%= f.collection_select :company_id, Company.where(name: @company.name), :id, :name %> <br>
 
-     <%= f.submit %>
+     <%= f.submit "Add Employee" %>
    <% end %>
 </div>
 <br>
 <br>
+
+<p><%= link_to 'Click here', edit_employee_path(@employee) %> to remove employee from company records!</p>
 
 <div>
-   <p>Remove employee from <%= @company.name %> records:</p>
+   <p>Remove employee from <%= @company.name %></p>
 
    <%= form_for @employee do |f| %>
-      <%= f.label "Choose employee to remove:" %> <br>
-      <%= f.collection_select  %>
-      <%= f.submit %>
+      <%= f.label "Choose Employee:" %>
+      <%= f.collection_select :company_id, Employee.all, :id, :name %>
+      <%= f.submit "Remove Employee" %>
    <% end %>
 </div>
+
 
 <div>
 <p>Current employees:</p>
@@ -45,4 +51,6 @@
       <% end %>
    </ul>
 </div>
+
+
 

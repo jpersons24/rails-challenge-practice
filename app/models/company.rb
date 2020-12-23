@@ -11,6 +11,10 @@ class Company < ApplicationRecord
       end
    end
 
-   
+   def rent_paid
+      self.offices.map do |office|
+         office.building.rent_per_floor
+      end
+   end
 
 end
