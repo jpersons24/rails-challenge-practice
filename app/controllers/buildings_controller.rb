@@ -5,21 +5,25 @@ class BuildingsController < ApplicationController
    end
 
    def show
-      @building = Building.find(params[:id])
+      @building = find_building
    end
 
    def edit
-      @building = Building.find(params[:id])
+      @building = find_building
    end
 
    def update
-      @building = Building.find(params[:id])
+      @building = find_building
       @building.update(building_params)
 
       redirect_to building_path(@building)
    end
 
    private
+
+   def find_building
+      Building.find(params[:id])
+   end
 
    def building_params
       params.require(:building).permit(:name, :country, :address, :rent_per_floor, :number_of_floors)

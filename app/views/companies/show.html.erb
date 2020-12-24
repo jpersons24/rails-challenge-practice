@@ -30,24 +30,14 @@
 <br>
 <br>
 
-<p><%= link_to 'Click here', edit_employee_path(@employee) %> to remove employee from company records!</p>
-
-<div>
-   <p>Remove employee from <%= @company.name %></p>
-
-   <%= form_for @employee do |f| %>
-      <%= f.label "Choose Employee:" %>
-      <%= f.collection_select :company_id, Employee.all, :id, :name %>
-      <%= f.submit "Remove Employee" %>
-   <% end %>
-</div>
+<p>Remove employee from company records:</p>
 
 
 <div>
 <p>Current employees:</p>
    <ul>
       <% @company.employees.each do |employee| %>
-         <li><%= employee.name %> - <i><%= employee.title %></i></li>
+         <li><%= link_to employee.name, edit_employee_path(employee) %> - <i><%= employee.title %></i></li>
       <% end %>
    </ul>
 </div>
